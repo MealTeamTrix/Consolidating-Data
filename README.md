@@ -1,12 +1,25 @@
-# Project Name
-This project is ________. (Describe the main goals of the project. Limit to 1-2 sentences)
+# Employee Data Consolidation
 
-## Description
-Optional section to provide a more detailed overview of the project.
+This script consolidates employee data from multiple sources, including office addresses, employee roles, and emergency contacts into a unified Dataframe.
 
-## Get Started
-This section should be used to summarize the project and how to get started after cloning. Once this section 
-is edited, it will show up on the Project Dashboard tab. 
+## Input Files
 
-If you completely delete this section, the "Get Started" widget will be removed from the Project Dashboard.
+Place all datasets in the 'datasets/' directory:
 
+- `office_addresses.csv`- Contains office location data.
+- `employee_information.xlsx`- Contains employee addresses and emergency contact details (sheet: `emergency_contacts`).
+- `employee_roles.json`- Contains roles indexed by `employee_id`.
+
+## How It Works
+
+1. Reads in office, address, emergency contact, and role data.
+2. Merges the datasets based on employee ID and country.
+3. Fills in missing office details with `"Remote"`.
+4. Outputs a clean DataFrame with selected columns and `employee_id` as the index.
+
+## Requirements
+
+Install dependencies using:
+
+```bash
+pip install -r requirements.txt
